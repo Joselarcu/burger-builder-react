@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import Aux from "../../../hoc/Auxilar/Auxiliar";
-import Button from "../../UI/Button/Button";
+import React, { Component } from 'react';
+import Aux from '../../../hoc/Auxilar/Auxiliar';
+import Button from '../../UI/Button/Button';
 class OrderSummary extends Component {
 //this could be a functional component, doesn't have to be a class component
 componentWillUpdate() {
@@ -13,9 +13,8 @@ componentWillUpdate() {
       igKey => {
         return (
           <li key={igKey}>
-            <span style={{ textTransform: "capitalize" }}>
-              {" "}
-              {igKey}: {this.props.ingredients[igKey]}{" "}
+            <span style={{ textTransform: 'capitalize' }}>
+              {igKey}: {this.props.ingredients[igKey]}
             </span>
           </li>
         );
@@ -29,10 +28,10 @@ componentWillUpdate() {
         <ul>{ingredientsSummary}</ul>
         <strong>Total Price: {this.props.price.toFixed(2)}</strong>
         <p>Continue to Checkout?</p>
-        <Button btnType="Danger" clicked={this.props.purchaseCancelled}>
+        <Button btnType='Danger' clicked={this.props.purchaseCancelled}>
           CANCEL
         </Button>
-        <Button btnType="Success" clicked={this.props.purchaseContinued}>
+        <Button btnType='Success' clicked={this.props.purchaseContinued}>
           CONTINUE
         </Button>
       </Aux>
