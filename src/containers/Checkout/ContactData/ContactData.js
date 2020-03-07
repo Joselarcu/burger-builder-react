@@ -1,26 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import axios from "../../../axios-orders";
-
-import Button from "../../../components/UI/Button/Button";
-import Spinner from "../../../components/UI/Spinner/Spinner";
-import Input from "../../../components/UI/Input/Input";
-
-import classes from "./ContactData.css";
-
-import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
-import * as actions from "../../../store/actions/index.js";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from '../../../axios-orders';
+import Button from '../../../components/UI/Button/Button';
+import Spinner from '../../../components/UI/Spinner/Spinner';
+import Input from '../../../components/UI/Input/Input';
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+import * as actions from '../../../store/actions/index';
+import classes from './ContactData.css';
 
 class ContactData extends Component {
   state = {
     orderForm: {
       name: {
-        elementType: "input",
+        elementType: 'input',
         elementConfig: {
-          type: "text",
-          placeholder: "Your Name"
+          type: 'text',
+          placeholder: 'Your Name'
         },
-        value: "",
+        value: '',
         validation: {
           required: true
         },
@@ -28,12 +25,12 @@ class ContactData extends Component {
         touched: false
       },
       street: {
-        elementType: "input",
+        elementType: 'input',
         elementConfig: {
-          type: "text",
-          placeholder: "Street"
+          type: 'text',
+          placeholder: 'Street'
         },
-        value: "",
+        value: '',
         validation: {
           required: true
         },
@@ -41,12 +38,12 @@ class ContactData extends Component {
         touched: false
       },
       zipcode: {
-        elementType: "input",
+        elementType: 'input',
         elementConfig: {
-          type: "text",
-          placeholder: "Zipcode"
+          type: 'text',
+          placeholder: 'Zipcode'
         },
-        value: "",
+        value: '',
         validation: {
           required: true,
           minLength: 5,
@@ -56,12 +53,12 @@ class ContactData extends Component {
         touched: false
       },
       country: {
-        elementType: "input",
+        elementType: 'input',
         elementConfig: {
-          type: "text",
-          placeholder: "Country"
+          type: 'text',
+          placeholder: 'Country'
         },
-        value: "",
+        value: '',
         validation: {
           required: true
         },
@@ -69,12 +66,12 @@ class ContactData extends Component {
         touched: false
       },
       email: {
-        elementType: "input",
+        elementType: 'input',
         elementConfig: {
-          type: "email",
-          placeholder: "Your Email"
+          type: 'email',
+          placeholder: 'Your Email'
         },
-        value: "",
+        value: '',
         validation: {
           required: true
         },
@@ -82,14 +79,14 @@ class ContactData extends Component {
         touched: false
       },
       deliveryMethod: {
-        elementType: "select",
+        elementType: 'select',
         elementConfig: {
           options: [
-            { value: "fastest", displayValue: "Fastest" },
-            { value: "cheapest", displayValue: "Cheapest" }
+            { value: 'fastest', displayValue: 'Fastest' },
+            { value: 'cheapest', displayValue: 'Cheapest' }
           ]
         },
-        value: "fastest",
+        value: 'fastest',
         validation: {},
         valid: true
       }
@@ -99,8 +96,6 @@ class ContactData extends Component {
 
   orderHandler = event => {
     event.preventDefault();
-    // this.setState({ loading: true });
-
     const formData = {};
     for (let formElementIdentifier in this.state.orderForm) {
       formData[formElementIdentifier] = this.state.orderForm[
@@ -114,16 +109,6 @@ class ContactData extends Component {
     };
 
     this.props.onOrderBurger(order);
-
-    // axios
-    //   .post("/orders.json", order)
-    //   .then(response => {
-    //     this.setState({ loading: false });
-    //     this.props.history.push("/");
-    //   })
-    //   .catch(error => {
-    //     this.setState({ loading: false });
-    //   });
   };
 
   checkValidity(value, rules) {
@@ -134,7 +119,7 @@ class ContactData extends Component {
     }
 
     if (rules.required) {
-      isValid = value.trim() !== "" && isValid;
+      isValid = value.trim() !== '' && isValid;
     }
     if (rules.minLength) {
       isValid = value.length >= rules.minLength && isValid;
@@ -190,7 +175,7 @@ class ContactData extends Component {
           />
         ))}
 
-        <Button btnType="Success" disabled={!this.state.formIsValid}>
+        <Button btnType='Success' disabled={!this.state.formIsValid}>
           ORDER
         </Button>
       </form>

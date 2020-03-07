@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import axios from "../../axios-orders";
+import axios from '../../axios-orders';
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
@@ -27,7 +27,7 @@ export const purchaseBurger = (orderData) => {
     return dispatch => {
         dispatch(purchaseBurgerStart());
          axios
-           .post("/orders.json", orderData)
+           .post('/orders.json', orderData)
            .then(response => {
             dispatch(purchaseBurgerSuccess(response.data.name, orderData));
            })
@@ -67,7 +67,7 @@ export const fetchOrders = () => {
     return dispatch => {
         dispatch(fetchOrderStart());
          axios
-           .get("/orders.json")
+           .get('/orders.json')
            .then(res => {
              const fetchOrders = [];
              console.log(res.data);

@@ -1,31 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Auxiliar from '../../hoc/Auxilar/Auxiliar';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
-import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
+import Modal from '../../components/UI/Modal/Modal';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import Auxiliar from '../../hoc/Auxilar/Auxiliar';
 import * as actions from '../../store/actions/index';
-// const INGREDIENT_PRICES = {
-//   salad: 0.5,
-//   cheese: 0.4,
-//   meat: 1.4,
-//   bacon: 0.7
-// };
+import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state = {...}
-  // }
+  
   state = {
-    // ingredients: null,
-    // totalPrice: 4,
-    // purchasable: false,
     purchasing: false,
     loading: false,
     error: false
