@@ -1,5 +1,5 @@
-import React from "react";
-import classes from "./Input.css";
+import React from 'react';
+import classes from './Input.css';
 
 const input = props => {
   let inputElement = null;
@@ -11,17 +11,17 @@ const input = props => {
   }
 
   switch (props.elementType) {
-    case "input":
+    case 'input':
       inputElement = (
         <input
           onChange={props.changed}
-          className={inputClasses.join(" ")}
+          className={inputClasses.join(' ')}
           {...props.elementConfig}
           value={props.value}
         />
       );
       break;
-    case "textarea":
+    case 'textarea':
       inputElement = (
         <textarea
           onChange={props.changed}
@@ -31,7 +31,7 @@ const input = props => {
         />
       );
       break;
-    case "select":
+    case 'select':
       inputElement = (
         <select
           onChange={props.changed}
